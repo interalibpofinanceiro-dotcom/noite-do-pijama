@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noite do Pijama · Ministério de Mulheres Vila Camargo</title>
+<meta name="description" content="Inscrição para a Noite do Pijama, evento do Ministério de Mulheres Vila Camargo, dia 24 de outubro.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500;1,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme: light dark;
+    --bg:#faf2f5;
+    --surface:#ffffff;
+    --surface-2:#fbe7ef;
+    --ink:#2a1b27;
+    --muted:#8c7386;
+    --line:#f0d3de;
+    --accent:#e23670;
+    --accent-deep:#a31f52;
+    --accent-ink:#ffffff;
+    --gold:#c8912f;
+    --dusk-1:#2a1b3d;
+    --dusk-2:#7a2350;
+    --shadow: 0 20px 40px -24px rgba(42,27,39,0.35);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#1a1220;
+      --surface:#241a29;
+      --surface-2:#2e1e33;
+      --ink:#f5e9f1;
+      --muted:#b79fb0;
+      --line:#4a2e44;
+      --accent:#f0568c;
+      --accent-deep:#f0568c;
+      --accent-ink:#241a29;
+      --gold:#e8b75b;
+      --dusk-1:#150d1e;
+      --dusk-2:#4a1a35;
+      --shadow: 0 20px 40px -20px rgba(0,0,0,0.55);
+    }
+  }
+
+  *{box-sizing:border-box;}
+  html, body{ margin:0; padding:0; }
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Work Sans", system-ui, sans-serif;
+    padding-inline:16px;
+    padding-block:32px;
+  }
+  img{ max-width:100%; }
+  .page{
+    max-width:620px;
+    margin:0 auto;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+  }
+
+  /* ---------- Header ---------- */
+  .header{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:28px 24px 24px;
+    text-align:center;
+    box-shadow:var(--shadow);
+  }
+  .header img{
+    width:min(280px, 80%);
+    height:auto;
+    margin:0 auto 6px;
+    display:block;
+  }
+  .header h1{
+    font-family:"Playfair Display", Georgia, serif;
+    font-style:italic;
+    font-weight:600;
+    font-size:clamp(2rem, 8vw, 2.7rem);
+    margin:4px 0 2px;
+    line-height:1.05;
+    text-wrap:balance;
+  }
+  .header .eyebrow{
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--muted);
+    font-weight:600;
+  }
+  .header .eligibility{
+    margin-top:10px;
+    font-size:0.85rem;
+    color:var(--muted);
+  }
+
+  /* ---------- Ticket stub ---------- */
+  .ticket{
+    position:relative;
+    background:linear-gradient(135deg, var(--dusk-1), var(--dusk-2));
+    color:#f6ecf1;
+    border-radius:20px;
+    padding:22px 22px 18px;
+    box-shadow:var(--shadow);
+    overflow:hidden;
+  }
+  .ticket-sky{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    opacity:0.9;
+  }
+  .ticket-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:18px;
+    position:relative;
+    z-index:1;
+  }
+  .ticket-item{
+    flex:1 1 140px;
+    min-width:0;
+  }
+  .ticket-item .label{
+    font-size:0.66rem;
+    letter-spacing:0.13em;
+    text-transform:uppercase;
+    color:#e7b8cd;
+    font-weight:600;
+    margin-bottom:4px;
+  }
+  .ticket-item .value{
+    font-family:"Playfair Display", Georgia, serif;
+    font-weight:600;
+    font-size:1.15rem;
+    line-height:1.25;
+  }
+  .ticket-perf{
+    border-top:2px dashed rgba(246,236,241,0.35);
+    margin:16px 0 12px;
+    position:relative;
+    z-index:1;
+  }
+  .ticket-note{
+    font-size:0.85rem;
+    color:#e7cfdc;
+    position:relative;
+    z-index:1;
+  }
+
+  /* ---------- Payment card ---------- */
+  .payment{
+    background:var(--surface-2);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:20px 22px;
+  }
+  .payment h2{
+    font-family:"Playfair Display", Georgia, serif;
+    font-style:italic;
+    font-weight:600;
+    font-size:1.3rem;
+    margin:0 0 12px;
+  }
+  .pix-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:10px 12px;
+    flex-wrap:wrap;
+  }
+  .pix-row .pix-key{
+    font-weight:600;
+    font-size:0.95rem;
+    word-break:break-all;
+    flex:1 1 auto;
+  }
+  .copy-btn{
+    border:1px solid var(--accent);
+    background:transparent;
+    color:var(--accent-deep);
+    font-family:inherit;
+    font-weight:600;
+    font-size:0.8rem;
+    padding:7px 12px;
+    border-radius:999px;
+    cursor:pointer;
+    white-space:nowrap;
+  }
+  .copy-btn:active{ transform:scale(0.97); }
+  .payment p{
+    margin:12px 0 0;
+    font-size:0.88rem;
+    color:var(--muted);
+    line-height:1.5;
+  }
+  .payment a.whatsapp-link{
+    color:var(--accent-deep);
+    font-weight:600;
+    text-decoration:underline;
+  }
+
+  /* ---------- Form ---------- */
+  form{
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+  }
+  fieldset{
+    border:none;
+    margin:0;
+    padding:0;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:20px 22px 22px;
+    box-shadow:var(--shadow);
+  }
+  legend{
+    padding:0 2px 10px 0;
+    font-size:0.72rem;
+    letter-spacing:0.13em;
+    text-transform:uppercase;
+    color:var(--accent-deep);
+    font-weight:700;
+    width:100%;
+    border-bottom:1px solid var(--line);
+    padding-bottom:10px;
+    margin-bottom:14px;
+  }
+  .field{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    margin-bottom:16px;
+  }
+  .field:last-child{ margin-bottom:0; }
+  .field label{
+    font-size:0.85rem;
+    font-weight:600;
+  }
+  .field .hint{
+    font-size:0.76rem;
+    color:var(--muted);
+    font-weight:400;
+  }
+  input, textarea{
+    font-family:inherit;
+    font-size:0.95rem;
+    color:var(--ink);
+    background:var(--bg);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:11px 12px;
+    width:100%;
+  }
+  input:focus, textarea:focus{
+    outline:2px solid var(--accent);
+    outline-offset:1px;
+  }
+  textarea{ resize:vertical; min-height:64px; }
+
+  .submit-row{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    align-items:center;
+    text-align:center;
+  }
+  .btn-primary{
+    width:100%;
+    background:var(--accent);
+    color:var(--accent-ink);
+    font-family:inherit;
+    font-weight:700;
+    font-size:1rem;
+    border:none;
+    border-radius:999px;
+    padding:15px 20px;
+    cursor:pointer;
+  }
+  .btn-primary:active{ transform:scale(0.99); }
+  .submit-row .fine{
+    font-size:0.78rem;
+    color:var(--muted);
+  }
+
+  /* ---------- Confirmation ---------- */
+  .confirm{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:28px 24px;
+    text-align:center;
+    box-shadow:var(--shadow);
+  }
+  .confirm .moon-badge{
+    width:56px; height:56px;
+    margin:0 auto 14px;
+    display:block;
+  }
+  .confirm h2{
+    font-family:"Playfair Display", Georgia, serif;
+    font-style:italic;
+    font-weight:600;
+    font-size:1.6rem;
+    margin:0 0 8px;
+  }
+  .confirm p{
+    color:var(--muted);
+    font-size:0.92rem;
+    line-height:1.55;
+    margin:0 0 20px;
+  }
+  .wa-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    width:100%;
+    background:#25D366;
+    color:#0b3b23;
+    font-weight:700;
+    font-size:1rem;
+    text-decoration:none;
+    border-radius:999px;
+    padding:15px 20px;
+  }
+  .confirm .secondary-row{
+    display:flex;
+    gap:10px;
+    justify-content:center;
+    margin-top:14px;
+    flex-wrap:wrap;
+  }
+  .link-btn{
+    background:none;
+    border:none;
+    color:var(--accent-deep);
+    font-family:inherit;
+    font-weight:600;
+    font-size:0.85rem;
+    cursor:pointer;
+    text-decoration:underline;
+    padding:6px;
+  }
+
+  [hidden]{ display:none !important; }
+
+  .toast{
+    position:fixed;
+    left:50%;
+    bottom:24px;
+    transform:translateX(-50%);
+    background:var(--ink);
+    color:var(--bg);
+    padding:10px 18px;
+    border-radius:999px;
+    font-size:0.85rem;
+    font-weight:600;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity 0.25s ease;
+    z-index:10;
+  }
+  .toast.show{ opacity:1; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="header">
+    <img src="logo.png" alt="Ministério de Mulheres Vila Camargo" />
+    <div class="eyebrow">Ministério de Mulheres · Vila Camargo</div>
+    <h1>Noite do Pijama</h1>
+    <div class="eligibility">Uma noite só para mulheres — a partir de 14 anos ✦</div>
+  </header>
+
+  <section class="ticket" aria-label="Informações do evento">
+    <svg class="ticket-sky" viewBox="0 0 400 140" preserveAspectRatio="xMaxYMin meet" width="180" style="position:absolute; top:-10px; right:-10px;">
+      <circle cx="330" cy="40" r="26" fill="#f6ecf1"></circle>
+      <circle cx="342" cy="32" r="24" fill="var(--dusk-2)"></circle>
+      <circle cx="270" cy="20" r="2.4" fill="#e8b75b"></circle>
+      <circle cx="290" cy="55" r="1.8" fill="#e8b75b"></circle>
+      <circle cx="250" cy="60" r="1.6" fill="#e8b75b"></circle>
+      <circle cx="380" cy="70" r="1.6" fill="#e8b75b"></circle>
+    </svg>
+    <div class="ticket-row">
+      <div class="ticket-item">
+        <div class="label">Quando</div>
+        <div class="value">Sáb, 24 de outubro</div>
+        <div class="value" style="font-size:0.95rem; font-weight:400; font-family:'Work Sans',sans-serif; color:#e7cfdc;">às 16h30</div>
+      </div>
+      <div class="ticket-item">
+        <div class="label">Onde</div>
+        <div class="value" style="font-size:1rem;">Promessa Vila Camargo</div>
+        <div class="value" style="font-size:0.85rem; font-weight:400; font-family:'Work Sans',sans-serif; color:#e7cfdc;">Av. Florianópolis, 829 — Vila Camargo</div>
+      </div>
+      <div class="ticket-item">
+        <div class="label">Inscrição</div>
+        <div class="value">R$ 60,00</div>
+      </div>
+    </div>
+    <div class="ticket-perf"></div>
+    <div class="ticket-note">Preencha o formulário abaixo e finalize sua inscrição enviando os dados e o comprovante para a Kelly no WhatsApp.</div>
+  </section>
+
+  <section class="payment">
+    <h2>Como pagar</h2>
+    <div class="pix-row">
+      <span class="pix-key" id="pixKey">iapvc55@gmail.com</span>
+      <button type="button" class="copy-btn" id="copyPixBtn">Copiar chave</button>
+    </div>
+    <p>Chave Pix (e-mail) no valor de <strong>R$ 60,00</strong>. Depois de pagar, guarde o comprovante — você vai enviá-lo junto com sua inscrição para a Kelly no WhatsApp: <a class="whatsapp-link" href="https://wa.me/5541984304084" target="_blank" rel="noopener">41 98430-4084</a>.</p>
+  </section>
+
+  <form id="regForm" novalidate>
+    <fieldset>
+      <legend>Seus dados</legend>
+      <div class="field">
+        <label for="nome">Nome completo *</label>
+        <input type="text" id="nome" name="nome" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label for="telefone">Telemóvel / WhatsApp *</label>
+        <input type="tel" id="telefone" name="telefone" autocomplete="tel" placeholder="(41) 9xxxx-xxxx" required>
+      </div>
+      <div class="field">
+        <label for="nascimento">Data de nascimento (ou idade) *</label>
+        <input type="text" id="nascimento" name="nascimento" placeholder="Ex.: 12/05/1990 ou 34 anos" required>
+      </div>
+      <div class="field">
+        <label for="igreja">Igreja ou congregação que frequenta *</label>
+        <input type="text" id="igreja" name="igreja" required>
+      </div>
+      <div class="field">
+        <label for="convidou">Quem te convidou? <span class="hint">(caso não seja da nossa IAP)</span></label>
+        <input type="text" id="convidou" name="convidou">
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Cuidados &amp; logística</legend>
+      <div class="field">
+        <label for="emergencia">Contacto de emergência (nome e número) *</label>
+        <input type="text" id="emergencia" name="emergencia" placeholder="Ex.: Maria Silva — (41) 9xxxx-xxxx" required>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Confirmação do pagamento</legend>
+      <div class="field">
+        <label for="titular">Nome do titular da conta bancária/Pix *</label>
+        <span class="hint">Se o pagamento for feito pela conta do marido, mãe ou outra pessoa, isso evita confusão na conciliação.</span>
+        <input type="text" id="titular" name="titular" required>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Antes da noite</legend>
+      <div class="field">
+        <label for="oracao">Qual o teu pedido de oração para esta noite?</label>
+        <span class="hint">A diretoria vai interceder por cada mulher antes do evento.</span>
+        <textarea id="oracao" name="oracao"></textarea>
+      </div>
+    </fieldset>
+
+    <div class="submit-row">
+      <button type="submit" class="btn-primary">Continuar e enviar no WhatsApp</button>
+      <div class="fine">Essa noite vai ser muito especial — sua inscrição está a um passo! 🌙</div>
+    </div>
+  </form>
+
+  <section class="confirm" id="confirmSection" hidden>
+    <svg class="moon-badge" viewBox="0 0 56 56">
+      <circle cx="30" cy="26" r="18" fill="#f6ecf1"></circle>
+      <circle cx="37" cy="20" r="16" fill="var(--bg)"></circle>
+      <circle cx="14" cy="12" r="1.6" fill="var(--gold)"></circle>
+      <circle cx="46" cy="42" r="1.4" fill="var(--gold)"></circle>
+    </svg>
+    <h2 id="confirmName">Inscrição pronta!</h2>
+    <p>Toque no botão abaixo para enviar seus dados no WhatsApp da Kelly. Depois, envie também o comprovante do Pix na mesma conversa para confirmar sua vaga.</p>
+    <a class="wa-btn" id="waSendBtn" href="#" target="_blank" rel="noopener">Enviar inscrição no WhatsApp</a>
+    <div class="secondary-row">
+      <button type="button" class="link-btn" id="copyTextBtn">Copiar texto da inscrição</button>
+      <button type="button" class="link-btn" id="editBtn">Editar respostas</button>
+    </div>
+  </section>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  var form = document.getElementById('regForm');
+  var confirmSection = document.getElementById('confirmSection');
+  var toast = document.getElementById('toast');
+  var KELLY_NUMBER = '5541984304084';
+
+  var DRAFT_KEY = 'noite-do-pijama-draft-v1';
+  var fields = ['nome','telefone','nascimento','igreja','convidou','emergencia','titular','oracao'];
+
+  function showToast(msg){
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(function(){ toast.classList.remove('show'); }, 2200);
+  }
+
+  function saveDraft(){
+    try{
+      var data = {};
+      fields.forEach(function(id){
+        data[id] = document.getElementById(id).value;
+      });
+      localStorage.setItem(DRAFT_KEY, JSON.stringify(data));
+    }catch(e){}
+  }
+
+  function loadDraft(){
+    try{
+      var raw = localStorage.getItem(DRAFT_KEY);
+      if(!raw) return;
+      var data = JSON.parse(raw);
+      fields.forEach(function(id){
+        if(data[id]) document.getElementById(id).value = data[id];
+      });
+    }catch(e){}
+  }
+
+  loadDraft();
+  fields.forEach(function(id){
+    document.getElementById(id).addEventListener('input', saveDraft);
+  });
+
+  document.getElementById('copyPixBtn').addEventListener('click', function(){
+    var key = document.getElementById('pixKey').textContent.trim();
+    try{
+      navigator.clipboard.writeText(key).then(function(){
+        showToast('Chave Pix copiada!');
+      }).catch(function(){ showToast('Toque e segure para copiar a chave.'); });
+    }catch(e){ showToast('Toque e segure para copiar a chave.'); }
+  });
+
+  function buildMessage(v){
+    var lines = [
+      'Olá Kelly! Aqui está minha inscrição para a *Noite do Pijama* 🌙✨',
+      '',
+      '*Nome completo:* ' + v.nome,
+      '*Telemóvel/WhatsApp:* ' + v.telefone,
+      '*Data de nascimento/idade:* ' + v.nascimento,
+      '*Igreja/congregação:* ' + v.igreja,
+      '*Quem me convidou:* ' + (v.convidou || '—'),
+      '*Contacto de emergência:* ' + v.emergencia,
+      '*Titular da conta Pix usada no pagamento:* ' + v.titular,
+      '*Pedido de oração para esta noite:* ' + (v.oracao || '—'),
+      '',
+      'Já vou enviar o comprovante do Pix (R$ 60,00) aqui em seguida. 💛'
+    ];
+    return lines.join('\n');
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!form.checkValidity()){
+      form.reportValidity();
+      return;
+    }
+    var v = {};
+    fields.forEach(function(id){ v[id] = document.getElementById(id).value.trim(); });
+
+    var message = buildMessage(v);
+    var waLink = 'https://wa.me/' + KELLY_NUMBER + '?text=' + encodeURIComponent(message);
+
+    document.getElementById('waSendBtn').setAttribute('href', waLink);
+    document.getElementById('confirmName').textContent = 'Tudo pronto, ' + (v.nome.split(' ')[0] || '') + '!';
+    document.getElementById('copyTextBtn').onclick = function(){
+      try{
+        navigator.clipboard.writeText(message).then(function(){
+          showToast('Texto copiado!');
+        }).catch(function(){ showToast('Não foi possível copiar automaticamente.'); });
+      }catch(e){ showToast('Não foi possível copiar automaticamente.'); }
+    };
+
+    form.hidden = true;
+    confirmSection.hidden = false;
+    confirmSection.scrollIntoView({behavior:'smooth', block:'start'});
+
+    try{ localStorage.removeItem(DRAFT_KEY); }catch(e){}
+  });
+
+  document.getElementById('editBtn').addEventListener('click', function(){
+    confirmSection.hidden = true;
+    form.hidden = false;
+    form.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+})();
+</script>
+</body>
+</html>
