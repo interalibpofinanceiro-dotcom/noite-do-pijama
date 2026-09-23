@@ -505,6 +505,7 @@
   var confirmSection = document.getElementById('confirmSection');
   var toast = document.getElementById('toast');
   var KELLY_NUMBER = '5541984304084';
+  var SHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwm2AcZuZL25rPSQ1vy-e3ReT6KNHxvk_1tDw679dH5xCBTMB5bZRNykjaeA0eUFt_dFw/exec';
 
   var DRAFT_KEY = 'noite-do-pijama-draft-v1';
   var fields = ['nome','telefone','nascimento','igreja','convidou','emergencia','titular','oracao'];
@@ -579,6 +580,15 @@
 
     var message = buildMessage(v);
     var waLink = 'https://wa.me/' + KELLY_NUMBER + '?text=' + encodeURIComponent(message);
+
+    try{
+      fetch(SHEET_ENDPOINT, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(v)
+      });
+    }catch(e){}
 
     document.getElementById('waSendBtn').setAttribute('href', waLink);
     document.getElementById('confirmName').textContent = 'Tudo pronto, ' + (v.nome.split(' ')[0] || '') + '!';
