@@ -429,16 +429,16 @@
         <input type="text" id="nome" name="nome" autocomplete="name" required>
       </div>
       <div class="field">
-        <label for="telefone">Telemóvel / WhatsApp *</label>
-        <input type="tel" id="telefone" name="telefone" autocomplete="tel" placeholder="(41) 9xxxx-xxxx" required>
+        <label for="telefone">Telemóvel / WhatsApp</label>
+        <input type="tel" id="telefone" name="telefone" autocomplete="tel" placeholder="(41) 9xxxx-xxxx">
       </div>
       <div class="field">
         <label for="nascimento">Data de nascimento (ou idade) *</label>
         <input type="text" id="nascimento" name="nascimento" placeholder="Ex.: 12/05/1990 ou 34 anos" required>
       </div>
       <div class="field">
-        <label for="igreja">Igreja ou congregação que frequenta *</label>
-        <input type="text" id="igreja" name="igreja" required>
+        <label for="igreja">Igreja ou congregação que frequenta</label>
+        <input type="text" id="igreja" name="igreja">
       </div>
       <div class="field">
         <label for="convidou">Quem te convidou? <span class="hint">(caso não seja da nossa IAP)</span></label>
@@ -449,18 +449,18 @@
     <fieldset>
       <legend>Cuidados &amp; logística</legend>
       <div class="field">
-        <label for="emergencia">Contacto de emergência — pai, mãe ou familiar (nome e número) *</label>
+        <label for="emergencia">Contacto de emergência — pai, mãe ou familiar (nome e número)</label>
         <span class="hint">Se for adolescente, informe um responsável que possa vir buscar em caso de necessidade.</span>
-        <input type="text" id="emergencia" name="emergencia" placeholder="Ex.: Maria Silva (mãe) — (41) 9xxxx-xxxx" required>
+        <input type="text" id="emergencia" name="emergencia" placeholder="Ex.: Maria Silva (mãe) — (41) 9xxxx-xxxx">
       </div>
     </fieldset>
 
     <fieldset>
       <legend>Confirmação do pagamento</legend>
       <div class="field">
-        <label for="titular">Nome do titular da conta bancária/Pix *</label>
+        <label for="titular">Nome do titular da conta bancária/Pix</label>
         <span class="hint">Se o pagamento for feito pela conta do marido, mãe ou outra pessoa, isso evita confusão na conciliação.</span>
-        <input type="text" id="titular" name="titular" required>
+        <input type="text" id="titular" name="titular">
       </div>
     </fieldset>
 
@@ -556,12 +556,12 @@
       'Olá Kelly! Aqui está minha inscrição para a *Noite do Pijama* 🌙✨',
       '',
       '*Nome completo:* ' + v.nome,
-      '*Telemóvel/WhatsApp:* ' + v.telefone,
+      '*Telemóvel/WhatsApp:* ' + (v.telefone || '—'),
       '*Data de nascimento/idade:* ' + v.nascimento,
-      '*Igreja/congregação:* ' + v.igreja,
+      '*Igreja/congregação:* ' + (v.igreja || '—'),
       '*Quem me convidou:* ' + (v.convidou || '—'),
-      '*Contacto de emergência:* ' + v.emergencia,
-      '*Titular da conta Pix usada no pagamento:* ' + v.titular,
+      '*Contacto de emergência:* ' + (v.emergencia || '—'),
+      '*Titular da conta Pix usada no pagamento:* ' + (v.titular || '—'),
       '*Pedido de oração para esta noite:* ' + (v.oracao || '—'),
       '',
       'Já vou enviar o comprovante do Pix (R$ 60,00) aqui em seguida. 💛'
