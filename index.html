@@ -206,6 +206,25 @@
     font-weight:600;
     text-decoration:underline;
   }
+  .attn-callout{
+    margin-top:14px;
+    background:var(--accent);
+    color:var(--accent-ink);
+    border-radius:14px;
+    padding:14px 16px;
+    text-align:center;
+    font-size:0.95rem;
+    line-height:1.5;
+  }
+  .attn-callout strong{
+    font-size:1.05rem;
+  }
+  .attn-link.attn-link{
+    color:var(--accent-ink);
+    font-weight:700;
+    font-size:1.1rem;
+    letter-spacing:0.02em;
+  }
 
   /* ---------- Form ---------- */
   form{
@@ -409,7 +428,7 @@
       </div>
     </div>
     <div class="ticket-perf"></div>
-    <div class="ticket-note">Preencha o formulário abaixo e finalize sua inscrição enviando os dados e o comprovante para a Kelly no WhatsApp.</div>
+    <div class="ticket-note">Preencha o formulário abaixo e finalize sua inscrição enviando os dados e o comprovante para a <strong>Keli</strong> no WhatsApp.</div>
   </section>
 
   <section class="payment">
@@ -418,7 +437,8 @@
       <span class="pix-key" id="pixKey">iapvc55@gmail.com</span>
       <button type="button" class="copy-btn" id="copyPixBtn">Copiar chave</button>
     </div>
-    <p>Chave Pix (e-mail) no valor de <strong>R$ 60,00</strong>. Depois de pagar, guarde o comprovante — você vai enviá-lo junto com sua inscrição para a Kelly no WhatsApp: <a class="whatsapp-link" href="https://wa.me/5541984304084" target="_blank" rel="noopener">41 98430-4084</a>.</p>
+    <p>Chave Pix (e-mail) no valor de <strong>R$ 60,00</strong>. Depois de pagar, guarde o comprovante.</p>
+    <div class="attn-callout">📌 Envie o comprovante e sua inscrição para a <strong>Keli</strong> no WhatsApp:<br><a class="whatsapp-link attn-link" href="https://wa.me/5541984304084" target="_blank" rel="noopener">41 98430-4084</a></div>
   </section>
 
   <form id="regForm" novalidate>
@@ -487,7 +507,7 @@
       <circle cx="46" cy="42" r="1.4" fill="var(--gold)"></circle>
     </svg>
     <h2 id="confirmName">Inscrição pronta!</h2>
-    <p>Toque no botão abaixo para enviar seus dados no WhatsApp da Kelly. Depois, envie também o comprovante do Pix na mesma conversa para confirmar sua vaga.</p>
+    <p>Toque no botão abaixo para enviar seus dados no WhatsApp da <strong>Keli</strong>. Depois, envie também o comprovante do Pix na mesma conversa para confirmar sua vaga.</p>
     <a class="wa-btn" id="waSendBtn" href="#" target="_blank" rel="noopener">Enviar inscrição no WhatsApp</a>
     <div class="secondary-row">
       <button type="button" class="link-btn" id="copyTextBtn">Copiar texto da inscrição</button>
@@ -553,7 +573,7 @@
 
   function buildMessage(v){
     var lines = [
-      'Olá Kelly! Aqui está minha inscrição para a *Noite do Pijama* 🌙✨',
+      'Olá Keli! Aqui está minha inscrição para a *Noite do Pijama* 🌙✨',
       '',
       '*Nome completo:* ' + v.nome,
       '*Telemóvel/WhatsApp:* ' + (v.telefone || '—'),
